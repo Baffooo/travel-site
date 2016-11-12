@@ -1,0 +1,37 @@
+@define-mixin atSmall {
+	@media (min-width: 530px) {
+		@mixin-content;
+	}
+}
+
+@define-mixin atMedium {
+	@media (min-width: 800px){
+		@mixin-content;
+	}
+}
+
+@define-mixin atLarge {
+	@media (min-width: 1200px){
+		@mixin-content;
+	}
+}
+
+
+/*
+	When we float an element we take it out of the normal flow of the page.
+	If a div has only direct-children elements that have been taken out of the flow of the page,
+	it can't have any idea how tall it should be.
+	To fix this problem we can create the following css selector named "after" that will add
+	a blank space after all of the contents in the main parent div that uses our "mixin clearfix".
+	That fake content of css (empty space) will clear for us the floats.
+	The main parent div now knows how tall it should be because all its floated children have been cleared.
+	The "display: table;" is for browser support.
+*/
+
+@define-mixin clearfix {
+	&::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+}

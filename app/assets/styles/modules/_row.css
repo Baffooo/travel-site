@@ -1,0 +1,53 @@
+.row {
+
+	@mixin clearfix;
+
+	/* It removes the padding on the right of the last element (the text) */
+	&--gutters {
+		padding-right: -65px;
+	}
+
+	/*
+		With the "> div" we're not applying the modifier to this element in which we add the class.
+		Instead, we're applying the modifier to all of its "div" children.
+	*/
+	&--gutters > div {
+		padding-right: 65px;
+	}
+
+	&__b-margin-until-medium {
+		margin-bottom: 1rem;
+	}
+
+	@mixin atMedium {
+		/*
+		When we have a small/mobile width, each element will use the total width. 
+		When the width gets larger, we imagine to split the row in 12 columns:
+		- the first element (image) will cover 4 columns of the row (on the left)
+		- the second element (text) will cover 8 columns of the row (after the first element)
+		*/
+
+		&__b-margin-until-medium {
+			margin-bottom: 0;
+		}
+
+		&__medium-4 {
+			float: left;
+			width: 33.33%; /* (100/12)*4 */
+		}
+
+		&__medium-4--larger {
+			width: 37%;
+		}
+
+		&__medium-8 {
+			float: left;
+			width: 66.66%; /* (100/12)*8 */
+		}
+
+		&__medium-8--smaller {
+			width: 63%;
+		}
+	}
+	
+}

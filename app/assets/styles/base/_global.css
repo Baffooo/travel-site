@@ -1,0 +1,28 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+/*
+	By default web browsers calculate the true width of an element by taking the declared width and then adding on
+	any paddings or borders.
+	For example, if we declare an element to have a width of 30%, another element to have a width of 70% and we add an extra
+	padding to those elements, we exceed the maximum width (100%) and the elements will split in two lines.
+
+	We can change the way in which web browsers calculate the true width of elements with the following instruction.
+	In that way the browser will follow only the declared width values.
+	The paddings and borders will still be applied but they won't affect the calculated width values.
+*/
+* {                             /* With the "*" we apply the content to all kind of elements */
+	box-sizing: border-box;
+}
+
+a {
+	color: $mainOrange;
+}
